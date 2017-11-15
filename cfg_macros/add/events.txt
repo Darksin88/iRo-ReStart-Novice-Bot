@@ -1,0 +1,10 @@
+﻿#
+automacro CardDrop {
+	console /Item added to inventory: .*Card.*/
+	call {
+		log =======================================
+		log ----------- CARD FOUND  !!! -----------
+		log =======================================
+		do eval Utils::Win32::playSound('sounds\firework2.wav')
+	}
+}

@@ -1,0 +1,20 @@
+﻿!include ..\cfg_macros\start.txt
+
+#!include autokach.mcs
+#!include ..\cfg_macros\add\vedro.txt
+#!include ..\cfg_macros\add\buyweapon.txt
+#!include ..\cfg_macros\add\events.txt
+#!include ..\cfg_macros\Novice_1-Start.txt
+#!include ..\cfg_macros\Novice_2-Teachers.txt
+#!include ..\cfg_macros\Novice_3-Tests.txt
+
+#!include ..\cfg_macros\Swordman_1-Quest.txt
+#!include ..\cfg_macros\Archer_1-Quest.txt
+#!include ..\cfg_macros\Thief_1-Quest.txt
+#!include ..\cfg_macros\Taekwon_1-Quest.txt
+#!include ..\cfg_macros\Merchant_1-Quest.txt
+#!include ..\cfg_macros\Acolyte_1-Quest.txt
+#!include ..\cfg_macros\Mage_1-Quest.txt
+
+
+#!include ..\cfg_macros\SecondClass\Assasin_1-JobChange.txt

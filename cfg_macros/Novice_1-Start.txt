@@ -1,0 +1,436 @@
+﻿# УТФ-8
+
+automacro DefaultSettings {
+	class Novice
+	base == 1
+	job == 1
+	location new_1-1 53 111, new_2-1 53 111, new_3-1 53 111, new_4-1 53 111, new_5-1 53 111
+	eval ($::config{QuestPart} ne "NoobZone0") and ($::config{QuestPart} ne "NoobZone1") and ($::config{QuestPart} ne "NoobZone2")
+	run-once 1
+	exclusive 1
+	call DefaultSettingsM
+}
+macro DefaultSettingsM {
+	
+	do conf QuestPart none
+	do conf QuestDone none
+	do conf QuestVar1 none
+	do conf QuestVar2 none
+	do conf QuestDesc none
+	do conf lockMap none
+	do conf route_randomWalk 0
+	do conf charname @eval($::char->{name})
+	do conf autoMoveOnDeath 0
+	do conf autoMoveOnDeath_x none
+	do conf autoMoveOnDeath_y none
+	do conf autoMoveOnDeath_map none
+	do conf saveMap none
+	do conf saveMap_warpToBuyOrSell 0
+	do conf sellAuto 0
+	do conf sellAuto_npc none
+	do conf sellAuto_standpoint none
+	do conf sellAuto_distance 5
+	do conf storageAuto 0
+	do conf storageAuto_npc none
+	do conf autoTalkCont 0
+	do conf relogAfterStorage 0
+	do conf sitAuto_hp_lower 20
+	do conf sitAuto_hp_upper 90
+	do conf sitAuto_idle 0
+	do conf sitAuto_look 4
+	do conf sitAuto_look_from_wall 1
+	do conf itemsTakeAuto 1
+	do conf itemsGatherAuto 0
+	do conf itemsTakeAuto_new 1
+	do pconf all 1	
+	do mconf all 1 0 0
+	do pconf Novice False Eggshell 0
+	do pconf Novice Guard 0
+	do pconf 1243 0
+	do pconf Novice Slippers 0
+	do pconf Somber Novice Hood 0
+	do pconf Tattered Novice Ninja Suit 0
+	do iconf Novice False Eggshell 0 0 0
+	do iconf Novice Guard 0 0 0
+	do iconf Novice Main Gauche 0 0 0
+	do iconf Novice Slippers 0 0 0
+	do iconf Somber Novice Hood 0 0 0
+	do iconf Tattered Novice Ninja Suit 0 0 0
+	do iconf Free Ticket for Kafra Storage 0 0 0
+	do iconf Free Ticket for Kafra Transportation 0 0 0
+	do iconf Free Ticket for the Cart Service 0 0 0
+	do iconf Novice Potion 0 0 0 	
+	do conf buyHP.block none
+	do conf buyHP.npc none
+	do conf buyHP.standpoint none
+	do conf buyHP.distance 5
+	do conf buyHP.price none
+	do conf buyHP.minAmount 2
+	do conf buyHP.maxAmount 5
+	do conf buyHP.zeny none
+	do conf buyHP.disabled 1
+	do conf useHP.block Novice Potion
+	do conf useHP.hp < 80%
+	do conf useHP.disabled 0
+	do conf statsAddAuto 0
+	do conf statsAddAuto_list none
+	do conf skillsAddAuto 0
+	do conf skillsAddAuto_list none
+	do conf runFromTarget 0
+	do conf runFromTarget_dist 6
+	
+	do conf QuestPart NoobZone0
+}
+
+
+automacro HowToUse {
+	class Novice
+	base == 1
+	job == 1
+	location new_1-1, new_2-1, new_3-1, new_4-1, new_5-1
+	eval $::config{QuestPart} eq "NoobZone0"
+	run-once 1
+	call HowToUseM
+}
+macro HowToUseM {
+[
+   log ==================================================================
+   log ==  You have not set the class in the config  ======================
+   log ==  type the macro you want from below  =======
+   log ==  and press Enter:  ==========================================
+   log ==  macro Swordsman-Crus  - for Templar =====================
+   log ==  macro Swordsman-Knight  - for Lord Knight  ===================
+   log ==  macro Acolite-Priest  - for High Priest  =======================
+   log ==  macro Acolite-Monk  - for Champion  ==============================
+   log ==  macro Thief-Assasin  - for Assassin Cross  =====================
+   log ==  macro Thief-Rogue  - for Rogue  =======================
+   log ==  macro Archer  - for Bard/Sniper  ========================
+   log ==  macro Mage  - for Warlock/Sage  ==============================
+   log ==  macro Merchant  - for Ferreito/Alquimista  =================
+   log ==  macro Taekwon  - for Taekwon  ===============================
+   log ==  macro Ninja  - for Ninja  ===================================
+   log ==  macro Gunslinger  - for Justiceiro ==========================
+   log ==> IF RSPs ERROR FOLLOW THE INSTRUCTIONS ABOVE  <======================
+   log ==================================================================
+
+]
+}
+
+
+
+macro Swordsman-Crus {
+[
+	do conf Job 1
+	do conf statsAddAuto 1
+	do conf statsAddAuto_list 15 str, 15 dex, 15 agi, 25 dex, 15 vit, 30 str, 30 agi, 20 vit, 50 str, 40 agi, 35 dex, 72 str, 60 agi, 40 vit, 47 dex, 75 vit, 68 agi
+	do conf skillsAddAuto 1
+	do conf skillsAddAuto_list Basic Skill 9, Bash 10, Provoke 5, Endure 2
+	
+	pause 1
+
+	lock NoviceGroundPart1
+
+	do ka4 *
+	pause 1
+	do include on .*Swordman.*
+	do include on autokach
+	
+	pause @rand(2,3)
+	do conf QuestPart NoobZone1
+	do reload macro
+]
+}
+
+macro Swordsman-Knight {
+[
+	do conf Job 1
+	do conf statsAddAuto 1
+	do conf statsAddAuto_list 15 str, 15 dex, 25 str, 25 dex, 15 vit, 30 dex, 40 str, 20 vit, 50 str, 30 agi, 40 dex, 60 str, 60 agi, 20 int, 49 dex, 75 str, 80 agi, 92 str
+	do conf skillsAddAuto 1
+	do conf skillsAddAuto_list Basic Skill 9, Bash 10, Provoke 5, Endure 2
+	pause 1
+
+	lock NoviceGroundPart1
+	do ka4 *
+	pause 1
+	do include on .*Swordman.*
+	pause @rand(2,3)
+	do conf QuestPart NoobZone1
+	do reload macro
+]
+}
+
+macro Acolite-Priest {
+[
+	do conf Job 2
+	do conf statsAddAuto 1
+	do conf statsAddAuto_list 15 dex, 15 int, 20 dex, 40 int, 30 dex, 50 int, 20 vit, 60 int, 40 dex, 70 int, 30 vit, 80 int, 60 dex, 60 vit
+	do conf skillsAddAuto 1
+	do conf skillsAddAuto_list Basic Skill 9
+
+	pause 1
+
+	lock NoviceGroundPart1
+	do ka4 *
+	pause 1
+	do include on .*Acolyte.*
+	pause @rand(2,3)
+	do conf QuestPart NoobZone1
+	do reload macro
+]
+}
+
+macro Acolite-Monk {
+[
+	do conf Job 2
+	do conf statsAddAuto 1
+	do conf statsAddAuto_list 15 str, 15 dex, 25 str, 25 dex, 15 vit, 30 dex, 40 str, 14 vit, 50 str, 30 agi, 40 dex, 60 str, 60 agi, 20 int, 54 dex, 75 str, 38 int, 73 agi, 48 int, 82 str
+	do conf skillsAddAuto 1
+	do conf skillsAddAuto_list Basic Skill 9, Heal 3, Divine Protection 5, Blessing 3
+	pause 1
+	lock NoviceGroundPart1
+	do ka4 *
+	pause 1
+	do include on .*Acolyte.*
+	pause @rand(2,3)
+	do conf QuestPart NoobZone1
+	do reload macro
+]
+}
+
+
+macro Mage {
+[
+	do conf Job 3
+	do conf statsAddAuto 1
+	do conf statsAddAuto_list 90 int, 90 dex, 40 vit
+	do conf skillsAddAuto 1
+	do conf skillsAddAuto_list Basic Skill 9
+	do pconf jellopy 1
+	do pconf fluff 1
+	pause 1
+	lock NoviceGroundPart1
+	do ka4 *
+	pause 1
+	do include on .*Mage.*
+	pause @rand(2,3)
+	do conf QuestPart NoobZone1
+	do reload macro
+]
+}
+
+macro Archer {
+[
+	do conf Job 4
+	do conf statsAddAuto 1
+	do conf statsAddAuto_list 50 dex, 30 agi, 70 dex, 40 agi, 80 dex, 60 agi, 90 dex, 70 agi, 99 dex, 99 agi
+	do conf skillsAddAuto 1
+	do conf skillsAddAuto_list Basic Skill 9, Owl's Eye 3, Vulture's Eye 10
+	do pconf Trunk 1
+	do pconf Fine-grained Trunk 1
+	do pconf Solid Trunk 1
+	do pconf Barren Trunk 1
+	do iconf Trunk 0 0 0
+	do iconf Fine-grained Trunk 0 0 0
+	do iconf Solid Trunk 0 0 0 
+	do iconf Barren Trunk 0 0 0
+	pause 1
+	lock NoviceGroundPart1
+	do ka4 *
+	pause 1
+	do include on .*Archer.*
+	pause @rand(2,3)
+	do conf QuestPart NoobZone1
+	do reload macro
+]
+}
+
+macro Thief-Rogue {
+[
+	do conf Job 5
+	do conf statsAddAuto 1
+	do conf statsAddAuto_list 10 str, 10 agi, 20 dex, 20 str, 50 agi, 30 dex, 30 str, 70 agi, 80 agi, 50 dex, 86 str, 95 agi
+	do conf skillsAddAuto 1
+	do conf skillsAddAuto_list Basic Skill 9, Improve Dodge 10, Double Attack 10, Steal 10, Hiding 9
+
+	pause 1
+	lock NoviceGroundPart1
+	do kach thief
+	pause 1
+	do include on .*Thief.*
+	do include on autokach
+	pause @rand(2,3)
+	do conf QuestPart NoobZone1
+	do reload macro
+]
+}
+
+macro Thief-Assasin {
+[
+	do conf Job 5
+	do conf statsAddAuto 1
+	do conf statsAddAuto_list 10 str, 10 agi, 20 dex, 20 str, 50 agi, 30 dex, 30 str, 70 agi, 42 dex, 60 str, 80 agi, 14 vit, 94 str
+	do conf skillsAddAuto 1
+	do conf skillsAddAuto_list Basic Skill 9, Improve Dodge 10, Double Attack 10, Envenom 4, Steal 5, Hiding 10
+	
+	pause 1
+	lock NoviceGroundPart1
+	do kach thief
+	log ====================================================================
+	log ========= Инжектим файлы макросов и RELOAD(config.txt).... =========
+	log ====================================================================
+	pause 1
+	do include on .*Thief.*
+	do include on .*SecondClass.*Assasin
+	do include on autokach
+	pause @rand(2,3)
+	do conf QuestPart NoobZone1
+	do reload macro
+]
+}
+
+
+macro Merchant {
+[
+	do conf Job 6
+	do conf statsAddAuto 1
+	do conf statsAddAuto_list 10 dex, 10 str, 20 agi, 20 str, 15 dex, 30 vit, 20 dex, 40 vit, 30 str, 30 dex, 22 agi, 40 str, 40 agi, 40 dex, 50 str, 12 int, 67 agi, 50 dex, 70 str, 60 vit, 24 int, 80 agi, 70 dex, 90 agi
+	do conf skillsAddAuto 1
+	do conf skillsAddAuto_list Basic Skill 9, Enlarge Weight Limit 4, Discount 4, Overcharge 4, Enlarge Weight Limit 5, Pushcart 4, Vending 4
+
+	pause 1
+	lock NoviceGroundPart1
+	do ka4 merch
+	pause 1
+	do include on .*Merchant.*
+	pause @rand(2,3)
+	do conf QuestPart NoobZone1
+	do reload macro
+]
+}
+
+# Newbie chars talking to the Teachers
+automacro NoviceGroundPart1 {
+   location new_1-1, new_2-1, new_3-1, new_4-1, new_5-1, new_1-2, new_2-2, new_3-2, new_4-2, new_5-2
+   eval $::config{QuestPart} eq "NoobZone1"
+   class Novice
+   run-once 1
+   call NoviceGroundPart1M
+   
+}
+   
+macro NoviceGroundPart1M {
+   do move $.map @rand(51,54) @rand(110,112)
+[
+   log ================================================
+   log ===========  Speaking with Sprakki  ============
+   log ================================================
+]
+   pause @rand(2,3)
+   do talknpc 53 114 c w1 c w1 c w1 c w1 c w1 c w1 c w1 c 
+   pause @rand(2,3)
+   do conf QuestPart NoviceZone2
+}
+
+
+
+
+
+########## Ниже вырезанны профы не доступные на 1-8 episode ##########
+#macro Taekwon {
+#[
+#	do conf Job 7
+#	do conf statsAddAuto 1
+#	do conf statsAddAuto_list 10 dex, 10 str, 20 agi, 20 str, 40 agi, 40 str, 20 dex, 70 agi, 50 str, 40 dex, 67 agi , 99 str , 50 dex
+#	do conf skillsAddAuto 1
+#	do conf skillsAddAuto_list Basic Skill 9, Run 10, Counter 1, Ready Counter 1, Counter 7,  Turn Kick 1, Ready Turn 1, Turn Kick 7, Down Kick 1, Ready Down 1, Down Kick 7, Storm Kick 1, Ready Storm 1, Storm Kick 7,Jump Kick 1, Power 5, Taekwon Mission 1
+#
+#	lock NoviceGroundPart1
+#	log Вызываем автокач-плагин, очищаем макрос кача, ибо нет исходной таблички для Тыквы
+#	do ka4 clear
+#
+#	do include off all
+#	do include on Novice
+#	do include on Taekwon
+#	do include on autokach
+#	do include on vedro
+#
+#	pause @rand(2,3)
+#	do conf QuestPart NoobZone1
+#	do reload macro
+#]	
+#}
+################################################
+################################################
+#macro Ninja {
+#[
+#	do conf Job 8
+#	do conf statsAddAuto 1
+#	#Статы как у торгаша, чтобы быстрее качался врукопашную. Мне так удобнее было тестить макрос.
+#	do conf statsAddAuto_list 10 dex, 10 str, 20 agi, 20 str, 15 dex, 30 vit, 20 dex, 40 vit, 30 str, 30 dex, 22 agi, 40 str, 40 agi, 40 dex, 50 str, 12 int, 67 agi, 50 dex, 70 str, 60 vit, 24 int, 80 agi, 70 dex, 90 agi
+#	do conf skillsAddAuto 1
+#	do conf skillsAddAuto_list Basic Skill 9
+#	lock NoviceGroundPart1
+#	do ka4 clear
+#
+#	do include off all
+#	do include on Novice
+#	do include on Ninja
+#	do include on Diribabl
+#	do include on autokach
+#	do include on vedro
+#
+#	pause @rand(2,3)
+#	do conf QuestPart NoobZone1
+#	do reload macro
+#]
+#}
+################################################
+################################################
+#macro Gunslinger {
+#[
+#	do conf Job 9
+#	do conf statsAddAuto 1
+#	#Статы как у торгаша, чтобы быстрее качался врукопашную. Мне так удобнее было тестить макрос.
+#	do conf statsAddAuto_list 10 dex, 10 str, 20 agi, 20 str, 15 dex, 30 vit, 20 dex, 40 vit, 30 str, 30 dex, 22 agi, 40 str, 40 agi, 40 dex, 50 str, 12 int, 67 agi, 50 dex, 70 str, 60 vit, 24 int, 80 agi, 70 dex, 90 agi
+#	do conf skillsAddAuto 1
+#	do conf skillsAddAuto_list Basic Skill 9
+#	lock NoviceGroundPart1
+#	do ka4 clear
+#
+#	do include off all
+#	do include on Novice
+#	do include on Gunslinger
+#	do include on Diribabl
+#	do include on autokach
+#	do include on vedro
+#
+#	pause @rand(2,3)
+#	do conf QuestPart NoobZone1
+#	do reload macro
+#]
+#
+#}
+################################################
+
+########################################
+#####Noob Zone Anti Reconnect Macro#####
+########################################
+automacro DisconnectedFromMapServerNoob {
+	class Novice
+	location new_1-1, new_2-1, new_3-1, new_4-1, new_5-1, new_1-2, new_2-2, new_3-2, new_4-2, new_5-2, new_1-3, new_2-3, new_3-3, new_4-3, new_5-3, new_1-4, new_2-4, new_3-4, new_4-4, new_5-4
+	console /(Disconnected from Map Server|The NPC did not respond|You are not talking to any NPC)/
+	exclusive 1
+	call DFMSN
+}
+macro DFMSN {
+	log ================================================
+	log ==========Ошибка в разговоре,Reconnect==========
+	log ================================================
+	pause 1
+	do reload macro
+	release all
+	do reload conf
+	do relog 7
+	pause 4
+}

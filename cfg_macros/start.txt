@@ -1,0 +1,46 @@
+﻿#
+automacro ServerEpisode {
+	class Novice
+	base == 1
+	job == 1
+	location new_1-1 53 111, new_2-1 53 111, new_3-1 53 111, new_4-1 53 111, new_5-1 53 111
+	eval ($::config{QuestPart} ne "NoobZone0") and ($::config{QuestPart} ne "NoobZone1") and ($::config{QuestPart} ne "NoobZone2") and ($::config{Episode} eq "Start")
+	run-once 1
+	exclusive 1
+	call ServerEpisodeM
+}
+
+macro ServerEpisodeM {
+
+	pause @rand(1,2)
+	[
+	do conf QuestPart none
+	do conf QuestDone none
+	do conf QuestVar1 none
+	do conf QuestVar2 none
+	do conf QuestDesc none
+	do conf lockMap none
+	do conf route_randomWalk 0
+	]
+	pause @rand(1,2)
+	[
+	log ====================================================================
+	log ====================WELCOME TO THIS LEVELING MACRO==================
+	log =====================Design for Ragnarok RE:START===================
+        log ===================This Macro is a worr-in progress=================
+	log =====================It's also my very first Macro==================
+	log ======================Type macro welcome to start===================
+	log ================================Darksin=============================
+    	log ====================================================================
+	]
+	pause 2
+	do conf Episode Select
+}
+macro welcome {
+[
+	do include off all
+	do include on .*Novice.*
+	do include on add.*
+]
+do reload macro
+}

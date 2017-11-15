@@ -1,0 +1,104 @@
+﻿# УТФ-8
+
+automacro NoviceGroundPart26 {
+	class Novice
+	base >= 12
+	job == 10
+	location new_1-3, new_2-3, new_3-3, new_4-3, new_5-3
+	eval $::config{QuestPart} eq "NoobZone26"
+	run-once 1
+	call NoviceGroundPart26M
+}
+macro NoviceGroundPart26M {
+	[
+	do conf attackAuto 0
+	do conf route_randomWalk 0
+	log ================================================
+	log =========  Going to the Final Test   ===========
+	log ================================================
+	]
+	do move @rand(95,97) @rand(169,171)
+	pause @rand(2,3)
+	do conf QuestPart NoobZone27
+}
+
+##########################################################################
+#######################       TESTS HERE       ###########################
+##########################################################################
+automacro Tests {
+	class Novice
+	location new_1-4, new_2-4, new_3-4, new_4-4, new_5-4
+	eval $::config{QuestPart} eq "NoobZone27"
+	run-once 1
+	call TestsM
+}
+macro TestsM {
+	[
+	log ================================================
+	log ======  Test for the profession you chose ======
+	log ================================================
+	]
+	do move @rand(99,101) @rand(21,23)
+	pause @rand(2,4)
+	$i = @config(Job)
+	if ($i == 1) goto swordsman
+	if ($i == 2) goto acolyte
+	if ($i == 3) goto mage
+	if ($i == 4) goto archer
+	if ($i == 5) goto thief
+	if ($i == 6) goto merchant
+		:swordsman
+			do talknpc 100 29 c c c c c c r1 c c c c r0 r0 r0 r0 r0 r0 c c r0 c r0 c r0 c r0 c c c r0 c r0 c r0 c r0 c c r0 c r0 c r0 c c r0 c r0 c r0 c r0 c r0 c c c c c c c c c c c r0 c c c c c c c c c
+			goto endtest
+		:acolyte
+		#	                                          1  2  3  4  5  6      7    8    9   10       11   12   13   14     15   16   17     18   19   20   21   22
+			do talknpc 100 29 c c c c c c r1 c c c c r2 r1 r0 r1 r1 r0 c c r0 c r1 c r0 c r1 c c c r1 c r0 c r0 c r1 c c r1 c r0 c r1 c c r1 c r0 c r1 c r3 c r0 c c c c c c c c c c c r0 c c c c c c c c c 
+			goto endtest
+		:mage
+			do talknpc 100 29 c c c c c c r0 c c c c r0 r0 r0 r0 r0 r0 c c r0 c r0 c r0 c r0 c c c r0 c r0 c r0 c r0 c c r0 c r0 c r0 c c r0 c r0 c r0 c r0 c r0 c c c c c c c c c c c r1 c r1 c c c c c c c c
+			goto endtest
+		:archer
+			do talknpc 100 29 c c c c c c r0 c c c c r0 r0 r0 r0 r0 r0 c c r0 c r0 c r0 c r0 c c c r0 c r0 c r0 c r0 c c r0 c r0 c r0 c c r0 c r0 c r0 c r0 c r0 c c c c c c c c c c c r1 c r4 c c c c c c c c
+			goto endtest
+		:thief
+			do talknpc 100 29 c c c c c c r1 c c c c r1 r0 r0 r0 r1 r1 c c r0 c r0 c r0 c r1 c c c r0 c r1 c r1 c r1 c c r2 c r1 c r1 c c r0 c r2 c r0 c r0 c r1 c c c c c c c c c c c r0 c c c c c c c c c
+			goto endtest
+		:merchant
+			do talknpc 100 29 c c c c c c r1 c c c c r1 r0 r1 r0 r0 r1 c c r0 c r0 c r1 c r0 c c c r0 c r0 c r0 c r0 c c r2 c r0 c r1 c c r1 c r0 c r0 c r2 c r1 c c c c c c c c c c c r0 c c c c c c c c c
+			goto endtest
+		:endtest
+	do conf QuestDone NoobZone
+	do conf QuestPart none
+}
+
+automacro own50 {
+	location new_1-4, new_2-4, new_3-4, new_4-4, new_5-4
+	eval $::config{QuestDone} eq "NoobZone"
+	console /Последний экзаменатор: Что-то Вы выглюдите очень/
+	delay 10
+	run-once 1
+	call own50M
+}
+macro own50M {
+	[
+	do pconf 1501 -1
+	do pconf 1502 -1
+	do pconf 1503 -1
+	do pconf 1504 -1
+	]
+	do reload pconf
+	do drop 25-30
+	pause 3
+	do conf QuestDone none
+	do conf QuestPart NoobZone27
+}			
+
+##########################################################################
+#######################ТЕСТЫ НА КАЖДУЮ ПРОФЕССИЮ##########################
+##########################################################################
+#1 r0 r0 r0 r0 r0 r0 r0 r0 r0 r0 r0 r0 r0 r0 r0 r0 r0 r0 r0 r0 r0 r0 r0 r0
+#2 r0 r2 r1 r0 r1 r1 r0 r0 r1 r0 r1 r1 r0 r0 r1 r1 r0 r1 r1 r0 r1 r3 r0 r0
+#3 r0 r0 r0 r2 r1 r0 r2 r0 r1 r1 r0 r1 r1 r1 r1 r1 r0 r2 r1 r0 r1 r1 r2 r0
+#4 r0 r1 r0 r1 r1 r1 r2 r1 r1 r0 r1 r0 r0 r0 r1 r2 r1 r1 r1 r1 r3 r1 r2 r0
+#5 r0 r1 r0 r0 r0 r1 r1 r0 r0 r1 r0 r0 r1 r1 r1 r2 r0 r2 r1 r0 r3 r0 r2 r0
+#6 r0 r1 r0 r1 r0 r0 r1 r0 r0 r1 r0 r0 r0 r0 r0 r0 r0 r2 r1 r0 r0 r2 r0 r0

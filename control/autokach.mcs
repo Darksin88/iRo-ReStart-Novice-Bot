@@ -1,0 +1,378 @@
+#UTF-8
+macro autokach {
+[
+	log = Begin AUTOKACH: Kach
+	log = 1..19 lvl -> morocc, moc_fild07
+	log = 1..19 lvl -> morocc, moc_fild10
+	log = 1..19 lvl -> morocc, moc_fild12
+	log = 20..38 lvl -> izlude, moc_fild13
+	log = 39..49 lvl -> izlude, iz_dun01
+	log = 50..55 lvl -> morocc, moc_fild15
+	do conf saveMap none
+	do conf QuestPart Kach2
+]
+}
+
+automacro KachTown {
+	location izlude, morocc
+	run-once 1
+	eval $::config{QuestPart} eq "Kach0"
+	call KachTownM
+}
+
+macro KachTownM {
+if ($.map != @config(lockMap)) goto end
+	#Propiska v gorode, save y kafra
+	call savetown
+	do conf lockMap none
+	pause @rand(2,4)
+	#Settings - sell, buy, storage, etc
+	call conftown
+	do conf QuestPart Kach2
+:end
+}
+automacro Kach_morocc_1_19 {
+	base >= 1
+	base <= 19
+	run-once 1
+	eval $::config{QuestPart} eq "Kach2" and $::config{saveMap} eq "morocc"
+	call Kach_morocc_1_19M
+}
+
+macro Kach_morocc_1_19M {
+	do conf attackAuto 2
+	do conf route_randomWalk 1
+	do conf lockMap @random("moc_fild07","moc_fild10","moc_fild12")
+	if (@config(lockMap) != moc_fild07) goto notmocfild07
+[
+		do mconf all 1 0 0
+		do mconf  Drops 1 0 0
+		do mconf  PecoPeco's Egg 1 0 0
+		do mconf  Picky 1 0 0
+		do mconf  Super Picky 1 0 0
+		do mconf Andre 1 0 0
+		do mconf Deniro 1 0 0
+		do mconf Yellow Plant 0 0 0
+		do iconf Poring Card 0 1 0
+		do iconf Fabre Card 0 1 0
+		do iconf Willow Card 0 1 0
+		do iconf Picky Card 0 1 0
+		do iconf Andre Card 0 1 0
+		do iconf Thara Frog Card 0 1 0
+		do iconf Kukre Card 0 1 0
+		do iconf Marina Card 0 1 0
+		do iconf Hydra Card 0 1 0
+		do iconf Scorpion Card 0 1 0
+		do iconf Muka Card 0 1 0
+		do iconf Peco Peco Egg Card 0 1 0
+		do iconf Condor Card 0 1 0
+		do iconf Metaller Card 0 1 0
+		do iconf Dokebi Card 0 1 0
+		do iconf Peco Peco Card 0 1 0
+		do iconf Snake Card 0 1 0
+		do iconf 2402 0 1 0
+		do iconf 2102 0 1 0
+		do iconf 1117 0 1 0
+		do iconf Andre Egg Card 0 1 0
+		do iconf all 0 0 1
+]
+	:notmocfild07
+	if (@config(lockMap) != moc_fild10) goto notmocfild10
+[
+		do mconf all 1 0 0
+		do mconf  Ant's Egg 1 0 0
+		do mconf  Drops 1 0 0
+		do mconf  PecoPeco's Egg 1 0 0
+		do mconf  Picky 1 0 0
+		do mconf Green Plant 0 0 0
+		do mconf  Magnolia 0 0 0
+		do mconf Andre 0 0 0
+		do mconf Deniro 0 0 0
+		do iconf Poring Card 0 1 0
+		do iconf Fabre Card 0 1 0
+		do iconf Willow Card 0 1 0
+		do iconf Picky Card 0 1 0
+		do iconf Andre Card 0 1 0
+		do iconf Thara Frog Card 0 1 0
+		do iconf Kukre Card 0 1 0
+		do iconf Marina Card 0 1 0
+		do iconf Hydra Card 0 1 0
+		do iconf Scorpion Card 0 1 0
+		do iconf Muka Card 0 1 0
+		do iconf Peco Peco Egg Card 0 1 0
+		do iconf Condor Card 0 1 0
+		do iconf Metaller Card 0 1 0
+		do iconf Dokebi Card 0 1 0
+		do iconf Peco Peco Card 0 1 0
+		do iconf Snake Card 0 1 0
+		do iconf 2402 0 1 0
+		do iconf 2102 0 1 0
+		do iconf 1117 0 1 0
+		do iconf Andre Egg Card 0 1 0
+		do iconf all 0 0 1
+]
+	:notmocfild10
+	if (@config(lockMap) != moc_fild12) goto notmocfild12
+[
+		do mconf all 1 0 0
+		do mconf  Drops 1 0 0
+		do mconf  PecoPeco's Egg 1 0 0
+		do mconf  Picky 1 0 0
+		do mconf  Super Picky 1 0 0
+		do mconf Yellow Plant 0 0 0
+		do mconf Andre 0 0 0
+		do mconf Deniro 0 0 0
+		do iconf Poring Card 0 1 0
+		do iconf Fabre Card 0 1 0
+		do iconf Willow Card 0 1 0
+		do iconf Picky Card 0 1 0
+		do iconf Andre Card 0 1 0
+		do iconf Thara Frog Card 0 1 0
+		do iconf Kukre Card 0 1 0
+		do iconf Marina Card 0 1 0
+		do iconf Hydra Card 0 1 0
+		do iconf Scorpion Card 0 1 0
+		do iconf Muka Card 0 1 0
+		do iconf Peco Peco Egg Card 0 1 0
+		do iconf Condor Card 0 1 0
+		do iconf Metaller Card 0 1 0
+		do iconf Dokebi Card 0 1 0
+		do iconf Peco Peco Card 0 1 0
+		do iconf Snake Card 0 1 0
+		do iconf 2402 0 1 0
+		do iconf 2102 0 1 0
+		do iconf 1117 0 1 0
+		do iconf Andre Egg Card 0 1 0
+		do iconf all 0 0 1
+]
+	:notmocfild12
+	do conf QuestPart Kach2
+}
+
+automacro Kach_izlude_20_38 {
+	base >= 20
+	base <= 38
+	run-once 1
+	eval $::config{QuestPart} eq "Kach2" and $::config{saveMap} eq "izlude"
+	call Kach_izlude_20_38M
+}
+
+macro Kach_izlude_20_38M {
+	do conf attackAuto 2
+	do conf route_randomWalk 1
+	do conf lockMap @random("moc_fild13")
+	if (@config(lockMap) != moc_fild13) goto notmocfild13
+[
+		do mconf all 1 0 0
+		do mconf  Drops 1 0 0
+		do mconf  PecoPeco's Egg 1 0 0
+		do mconf  Picky 1 0 0
+		do mconf  Super Picky 1 0 0
+		do mconf Yellow Plant 0 0 0
+		do mconf Red Mushroom 0 0 0
+		do mconf Andre 0 0 0
+		do mconf Deniro 0 0 0
+		do iconf Drops Card 0 1 0
+		do iconf  Picky Egg Card 0 1 0
+		do iconf  Poring Card 0 1 0
+		do iconf Fabre Card 0 1 0
+		do iconf Willow Card 0 1 0
+		do iconf Picky Card 0 1 0
+		do iconf Andre Card 0 1 0
+		do iconf Thara Frog Card 0 1 0
+		do iconf Kukre Card 0 1 0
+		do iconf Marina Card 0 1 0
+		do iconf Hydra Card 0 1 0
+		do iconf Scorpion Card 0 1 0
+		do iconf Muka Card 0 1 0
+		do iconf Peco Peco Egg Card 0 1 0
+		do iconf Condor Card 0 1 0
+		do iconf Metaller Card 0 1 0
+		do iconf Dokebi Card 0 1 0
+		do iconf Peco Peco Card 0 1 0
+		do iconf Snake Card 0 1 0
+		do iconf 2402 0 1 0
+		do iconf 2102 0 1 0
+		do iconf 1117 0 1 0
+		do iconf Andre Egg Card 0 1 0
+		do iconf all 0 0 1
+]
+	:notmocfild13
+	do conf QuestPart Kach2
+}
+
+automacro Kach_izlude_39_49 {
+	base >= 39
+	base <= 49
+	run-once 1
+	eval $::config{QuestPart} eq "Kach2" and $::config{saveMap} eq "izlude"
+	call Kach_izlude_39_49M
+}
+
+macro Kach_izlude_39_49M {
+	do conf attackAuto 2
+	do conf route_randomWalk 1
+	do conf lockMap @random("iz_dun01")
+	if (@config(lockMap) != iz_dun01) goto notizdun01
+[
+		do mconf all 1 0 0
+		do mconf Picky 0 0 0
+		do mconf  Yellow Plant 0 0 0
+		do mconf  Red Mushroom 0 0 0
+		do iconf Poring Card 0 1 0
+		do iconf Fabre Card 0 1 0
+		do iconf Willow Card 0 1 0
+		do iconf Picky Card 0 1 0
+		do iconf Andre Card 0 1 0
+		do iconf Thara Frog Card 0 1 0
+		do iconf Kukre Card 0 1 0
+		do iconf Marina Card 0 1 0
+		do iconf Hydra Card 0 1 0
+		do iconf Scorpion Card 0 1 0
+		do iconf Muka Card 0 1 0
+		do iconf Peco Peco Egg Card 0 1 0
+		do iconf Condor Card 0 1 0
+		do iconf Metaller Card 0 1 0
+		do iconf Dokebi Card 0 1 0
+		do iconf Peco Peco Card 0 1 0
+		do iconf Snake Card 0 1 0
+		do iconf 2402 0 1 0
+		do iconf 2102 0 1 0
+		do iconf 1117 0 1 0
+		do iconf Plankton Card 0 1 0
+		do iconf Cornutus Card 0 1 0
+		do iconf 2106 0 1 0
+		do iconf Vadon Card 0 1 0
+		do iconf Andre Egg Card 0 1 0
+		do iconf all 0 0 1
+]
+	:notizdun01
+	do conf QuestPart Kach2
+}
+
+automacro Kach_morocc_50_55 {
+	base >= 50
+	base <= 55
+	run-once 1
+	eval $::config{QuestPart} eq "Kach2" and $::config{saveMap} eq "morocc"
+	call Kach_morocc_50_55M
+}
+
+macro Kach_morocc_50_55M {
+	do conf attackAuto 2
+	do conf route_randomWalk 1
+	do conf lockMap @random("moc_fild15")
+	if (@config(lockMap) != moc_fild15) goto notmocfild15
+[
+		do mconf all 1 0 0
+		do mconf Yellow Plant 0 0 0
+		do iconf Poring Card 0 1 0
+		do iconf Fabre Card 0 1 0
+		do iconf Willow Card 0 1 0
+		do iconf Picky Card 0 1 0
+		do iconf Andre Card 0 1 0
+		do iconf Thara Frog Card 0 1 0
+		do iconf Kukre Card 0 1 0
+		do iconf Marina Card 0 1 0
+		do iconf Hydra Card 0 1 0
+		do iconf Scorpion Card 0 1 0
+		do iconf Muka Card 0 1 0
+		do iconf Peco Peco Egg Card 0 1 0
+		do iconf Condor Card 0 1 0
+		do iconf Metaller Card 0 1 0
+		do iconf Dokebi Card 0 1 0
+		do iconf Peco Peco Card 0 1 0
+		do iconf Snake Card 0 1 0
+		do iconf 2402 0 1 0
+		do iconf 2102 0 1 0
+		do iconf 1117 0 1 0
+		do iconf Andre Egg Card 0 1 0
+		do iconf all 0 0 1
+]
+	:notmocfild15
+	do conf QuestPart Kach2
+}
+
+#### 1..19 #### morocc
+automacro morocc_1_19 {
+	base >= 1
+	base <= 19
+	run-once 1
+	eval $::config{QuestPart} eq "Kach2" and $::config{saveMap} ne "morocc"
+	call morocc_1_19M
+}
+
+macro morocc_1_19M {
+	log Go to a new town: morocc
+	if (@config(saveMap) == morocc) goto end
+		do conf attackAuto 0
+		do conf route_randomWalk 0
+		do conf lockMap morocc
+		do conf QuestPart Kach0
+		do move @config(lockMap)
+		release KachTown
+	:end
+}
+#### 20..49 #### izlude
+automacro izlude_20_49 {
+	base >= 20
+	base <= 49
+	run-once 1
+	eval $::config{QuestPart} eq "Kach2" and $::config{saveMap} ne "izlude"
+	call izlude_20_49M
+}
+
+macro izlude_20_49M {
+	log Go to a new town: izlude
+	if (@config(saveMap) == izlude) goto end
+		do conf attackAuto 0
+		do conf route_randomWalk 0
+		do conf lockMap izlude
+		do conf QuestPart Kach0
+		do move @config(lockMap)
+		release KachTown
+	:end
+}
+#### 50..55 #### morocc
+automacro morocc_50_55 {
+	base >= 50
+	base <= 55
+	run-once 1
+	eval $::config{QuestPart} eq "Kach2" and $::config{saveMap} ne "morocc"
+	call morocc_50_55M
+}
+
+macro morocc_50_55M {
+	log Go to a new town: morocc
+	if (@config(saveMap) == morocc) goto end
+		do conf attackAuto 0
+		do conf route_randomWalk 0
+		do conf lockMap morocc
+		do conf QuestPart Kach0
+		do move @config(lockMap)
+		release KachTown
+	:end
+}
+
+macro autokachLock {
+	lock Kach_morocc_1_19
+	lock Kach_izlude_20_38
+	lock Kach_izlude_39_49
+	lock Kach_morocc_50_55
+}
+
+macro autokachRelease {
+	release Kach_morocc_1_19
+	release Kach_izlude_20_38
+	release Kach_izlude_39_49
+	release Kach_morocc_50_55
+}
+
+# source file: plugins\autokach.csv. SetName: thief
+#
+# 1;thief;1;19;morocc;moc_fild07;all, Drops, PecoPeco's Egg, Picky, Super Picky,Andre,Deniro;Yellow Plant;Poring Card,Fabre Card,Willow Card,Picky Card,Andre Card,Thara Frog Card,Kukre Card,Marina Card,Hydra Card,Scorpion Card,Muka Card,Peco Peco Egg Card,Condor Card,Metaller Card,Dokebi Card,Peco Peco Card,Snake Card,2402,2102,1117,Andre Egg Card;all
+# 2;thief;1;19;morocc;moc_fild10;all, Ant's Egg, Drops, PecoPeco's Egg, Picky;Green Plant, Magnolia,Andre,Deniro;Poring Card,Fabre Card,Willow Card,Picky Card,Andre Card,Thara Frog Card,Kukre Card,Marina Card,Hydra Card,Scorpion Card,Muka Card,Peco Peco Egg Card,Condor Card,Metaller Card,Dokebi Card,Peco Peco Card,Snake Card,2402,2102,1117,Andre Egg Card;all
+# 3;thief;1;19;morocc;moc_fild12;all, Drops, PecoPeco's Egg, Picky, Super Picky;Yellow Plant,Andre,Deniro;Poring Card,Fabre Card,Willow Card,Picky Card,Andre Card,Thara Frog Card,Kukre Card,Marina Card,Hydra Card,Scorpion Card,Muka Card,Peco Peco Egg Card,Condor Card,Metaller Card,Dokebi Card,Peco Peco Card,Snake Card,2402,2102,1117,Andre Egg Card;all
+# 4;thief;20;38;izlude;moc_fild13;all, Drops, PecoPeco's Egg, Picky, Super Picky;Yellow Plant,Red Mushroom,Andre,Deniro;Drops Card, Picky Egg Card, Poring Card,Fabre Card,Willow Card,Picky Card,Andre Card,Thara Frog Card,Kukre Card,Marina Card,Hydra Card,Scorpion Card,Muka Card,Peco Peco Egg Card,Condor Card,Metaller Card,Dokebi Card,Peco Peco Card,Snake Card,2402,2102,1117,Andre Egg Card;all
+# 5;thief;39;49;izlude;iz_dun01;all;Picky, Yellow Plant, Red Mushroom;Poring Card,Fabre Card,Willow Card,Picky Card,Andre Card,Thara Frog Card,Kukre Card,Marina Card,Hydra Card,Scorpion Card,Muka Card,Peco Peco Egg Card,Condor Card,Metaller Card,Dokebi Card,Peco Peco Card,Snake Card,2402,2102,1117,Plankton Card,Cornutus Card,2106,Vadon Card,Andre Egg Card;all
+# 6;thief;50;55;morocc;moc_fild15;all;Yellow Plant;Poring Card,Fabre Card,Willow Card,Picky Card,Andre Card,Thara Frog Card,Kukre Card,Marina Card,Hydra Card,Scorpion Card,Muka Card,Peco Peco Egg Card,Condor Card,Metaller Card,Dokebi Card,Peco Peco Card,Snake Card,2402,2102,1117,Andre Egg Card;all

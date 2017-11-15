@@ -1,0 +1,87 @@
+﻿#Покупаем/точим гауч#
+automacro MainGauche {
+	class thief
+	base >= 15
+	equipped rightHand Knife [3]
+	zeny > 5400
+	call MainGaucheM
+	run-once 1
+	set zeny 0
+}
+macro MainGaucheM {
+	lock all
+	log ================================================
+	log = Хватает денег на гауч, идем в пронту купим.
+	log ================================================
+	pause 2
+	do move 168 128 prt_in
+	do talk @npc (172 130)
+	pause 1
+	do store
+	pause 1
+	do buy 5
+	pause 2
+	do eq @inventory (Main Gauche [3])
+	pause 2
+	do eval $::Macro::Data::varStack{zeny} = $::char->{'zeny'}
+	log ================================================
+	log = Купили ,одели, интересно сможем ли заточить.
+	log ================================================
+	
+	if ($zeny >= 3000) goto tochim
+	
+	log ================================================
+	log = Не хватает денег, идем копить сразу на дамаск.
+	log ================================================
+		goto end
+
+       :tochim
+	log ================================================
+	log = Нам хватило денег,идем в кузницу 
+	log = будем точить.
+	log ================================================
+	do move 55 66 prt_in
+	do talknpc 56 68 c r0 c d7 c
+	pause 3
+	do talknpc 63 60 c r3 c r0 c c
+	pause 3
+	do talknpc 63 60 c r3 c r0 c c
+	pause 3
+	do talknpc 63 60 c r3 c r0 c c
+	pause 3
+	do talknpc 63 60 c r3 c r0 c c
+	pause 3
+	do talknpc 63 60 c r3 c r0 c c
+	pause 3
+	do talknpc 63 60 c r3 c r0 c c
+	pause 3
+	do talknpc 63 60 c r3 c r0 c c
+	pause 3
+    goto end
+		:end
+		release MainGauche
+	release all
+}
+#Покупаем дамаск#
+automacro buyDam-us {
+	class thief
+	run-once 1
+	equipped +7 Main Gauche [3], Dirk [2]
+	base > 23
+	zeny > 60000
+	call buyDam-usM
+}
+macro buyDam-usM {
+	lock all
+	do move 138 65 morocc_in
+	pause 2
+	do talk @npc (141 67)
+	pause 2
+	do store
+	pause 2
+	do buy 11
+	pause 2
+	do eq Damascus [1]
+	pause 1
+	release all
+}

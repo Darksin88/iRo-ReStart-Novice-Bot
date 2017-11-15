@@ -1,0 +1,425 @@
+﻿############################################################
+automacro AssasinQuestStart {
+	class Thief
+	job >= 40
+	eval $::config{Job} eq "5" and $::config{QuestPart} eq "Kach2" and $::config{QuestDone} eq "NoobZone ThiefQuest"
+	exclusive 1
+	run-once 1
+	call AssasinQuestStartM
+}
+macro AssasinQuestStartM {
+	do conf buyHP.disabled 1
+[
+	log ================================================
+	log ====Идем в гильдию ассасинов=====
+	log ================================================
+	pause @rand(1,2)
+	do include off preRenewal.*Novice.*
+	do include off preRenewal.*Thief.*
+	do conf attackAuto 0
+	do conf route_randomWalk 0
+	do conf QuestPart AssasinQuest1
+]
+}
+###########################################################
+
+
+
+
+###########################################################
+automacro AssasinQuestPart1a {
+	location not in_moc_16
+	eval $::config{QuestPart} eq "AssasinQuest1"
+	run-once 1
+	call AssasinQuestPart1aM
+}
+macro AssasinQuestPart1aM {
+	do conf lockMap in_moc_16
+}
+###########################################################
+
+
+###########################################################
+automacro AssasinQuestPart1b {
+	location in_moc_16
+	eval $::config{QuestPart} eq "AssasinQuest1"
+	run-once 1
+	call AssasinQuestPart1bM
+}
+macro AssasinQuestPart1bM {
+[
+	log ================================================
+	log ====  Разговариваем с нпц на Assasin'a     =====
+	log ================================================
+]
+	do conf lockMap none
+	do move in_moc_16 17 27
+	pause @rand(3,4)
+	do talknpc 19 33 c w1 c w1 c w1 c w1 r0 w1 c
+	pause @rand(2,3)
+	do conf QuestPart AssasinQuest2
+}
+###########################################################
+
+
+###########################################################
+automacro AssasinQuestPart2a {
+	location in_moc_16 19 76
+	eval $::config{QuestPart} eq "AssasinQuest2"
+	run-once 1
+	call AssasinQuestPart2aM
+}
+macro AssasinQuestPart2aM {
+[
+	log ================================================
+	log ====    Подходим ко второму нпц            =====
+	log ================================================
+]
+	pause @rand(2,3)
+	do move in_moc_16 26 89
+	do talk cont
+	do talk resp 0
+	do talk cont
+	do talk cont
+	do talk cont
+	do talk cont
+	do conf QuestPart AssasinQuest3
+}
+###########################################################
+
+###########################################################
+automacro AssasinQuestPart2b {
+	location in_moc_16 19 144
+	eval $::config{QuestPart} eq "AssasinQuest3"
+	run-once 1
+	call AssasinQuestPart2bM
+}
+macro AssasinQuestPart2bM {
+[
+	log ================================================
+	log ====    Проходим тест на ассасина          =====
+	log ================================================
+]
+	pause @rand(2,3)
+	if (@config(QuestDesc) == Fail) goto next1
+	do move in_moc_16 19 156
+	do talk cont
+	do talk cont
+	do talk cont
+	do talk resp 1
+	do talk cont
+	do talk cont
+	do talk cont
+	do talk cont
+	do talk cont
+	do talk resp 2
+	do talk cont
+	do talk cont
+	do talk cont
+	do conf QuestPart AssasinQuest4
+	do talk cont
+	goto end
+	:next1
+	###
+	goto end
+	:end
+	do conf QuestPart AssasinQuest4
+}
+###########################################################
+
+
+
+
+###########################################################
+automacro AssasinQuestPart2с {
+	location in_moc_16
+	eval $::config{QuestPart} eq "AssasinQuest4"
+	console /.*\s\#[0-9]+(?:\.[0-9]*)?: 1. (.*?)\s(.*?)\s.*/
+	run-once 1
+	call AssasinQuestPart2сM
+}
+macro AssasinQuestPart2сM {
+[
+	log ==========================================
+	log = Теперь Знаем какой тест нужно проходить 
+	log ==========================================
+]
+	log $.lastMatch1 $.lastMatch2 $.lastMatch3
+	do conf QuestVar1 $.lastMatch1
+	do conf QuestVar2 $.lastMatch2
+	if (@config(QuestVar1) == Which) goto next1
+	if ((@config(QuestVar1) == Choose) && (@config(QuestVar2) == the)) goto next2
+	if ((@config(QuestVar1) == Choose) && (@config(QuestVar2) == skill)) goto next3
+	:next1
+	log test1
+#do talknpc c r2 c r0 c r1 c r3 c r0 c r1 c r3 c r3 c r2 c r2 c c c c
+do talk cont
+do talk resp 2
+do talk cont
+do talk resp 0
+do talk cont
+do talk resp 1
+do talk cont
+do talk resp 3
+do talk cont
+do talk resp 0
+do talk cont
+do talk resp 1
+do talk cont
+do talk resp 3
+do talk cont
+do talk resp 3
+do talk cont
+do talk resp 2
+do talk cont
+do talk resp 2
+do talk cont
+do talk cont
+do talk cont
+		goto end
+	:next2
+	log test2
+#do talknpc c r0 c r1 c r2 c r3 c r1 c r0 c r3 c r1 c r0 c r1 c c c c
+do talk cont
+do talk resp 0
+do talk cont
+do talk resp 1
+do talk cont
+do talk resp 2
+do talk cont
+do talk resp 3
+do talk cont
+do talk resp 1
+do talk cont
+do talk resp 0
+do talk cont
+do talk resp 3
+do talk cont
+do talk resp 1
+do talk cont
+do talk resp 0
+do talk cont
+do talk resp 1
+do talk cont
+do talk cont
+do talk cont
+		goto end
+	:next3
+	log test3
+#do talknpc c r3 c r0 c r1 c r3 c r3 c r2 c r1 c r2 c r1 c r0 c c c c
+do talk cont
+do talk resp 3
+do talk cont
+do talk resp 0
+do talk cont
+do talk resp 1
+do talk cont
+do talk resp 3
+do talk cont
+do talk resp 3
+do talk cont
+do talk resp 2
+do talk cont
+do talk resp 1
+do talk cont
+do talk resp 2
+do talk cont
+do talk resp 1
+do talk cont
+do talk resp 0
+do talk cont
+do talk cont
+do talk cont
+		goto end
+	:end
+	do move in_moc_16 19 161
+	do conf QuestPart AssasinQuest5
+}
+
+###########################################################
+automacro AssasinQuestPart3 {
+	location in_moc_16 19 161
+	eval $::config{QuestPart} eq "AssasinQuest5" or $::config{QuestPart} eq "AssasinQuest6" or $::config{QuestPart} eq "AssasinQuest7"
+	run-once 1
+	call AssasinQuestPart3M
+}
+
+################FALLING#######################
+#automacro AssasinQuestPart3fall {
+#	location in_moc_16 19 161
+#	eval $::config{QuestPart} eq "AssasinQuest6" or $::config{QuestPart} eq "AssasinQuest7"
+#	run-once 1
+#	call AssasinQuestPart3M
+#}
+
+macro AssasinQuestPart3M {
+[
+	log ================================================
+	log =====    Самая сложная часть квеста      =======
+	log =====         Привет порингам            =======
+	log ================================================
+]
+	pause @rand(2,3)
+	do chat join 0
+	release AssasinQuestPart3
+	do conf QuestPart AssasinQuest6
+	do conf route_step 2
+	do move 64 154
+	pause 30
+	do conf QuestPart AssasinQuest7
+	do ml
+}
+###########################################################
+###########################################################
+
+###########################################################
+automacro AssasinQuestPart3a {
+	console /(\d+)\s+\w+\[Job change target\]\s+.*/
+	eval $::config{QuestPart} eq "AssasinQuest7"
+	run-once 1
+	call AssasinQuestPart3aM
+}
+macro AssasinQuestPart3aM {
+
+[
+	log ================================================
+	log ===== НАЙДЕН id - $.lastMatch1 = УБИТЬ   =======
+	log ================================================
+]
+	do a $.lastMatch1
+	pause 2
+[	
+	log ================================================
+	log =====  Ищем дальше  [Job change target]  =======
+	log ================================================
+]
+	do move 84 162
+	release AssasinQuestPart3a
+	do ml
+}
+###########################################################
+
+###########################################################
+automacro AssasinQuestPart4 {
+	console /\[GM\] You seem to be doing quite well. Keep it up!.*/
+	eval $::config{QuestPart} eq "AssasinQuest7"
+	run-once 1
+	call AssasinQuestPart4M
+}
+macro AssasinQuestPart4M {
+	[
+	log ================================================
+	log ==  Поздравляю все [Job change target] убиты  ==
+	log ==    Теперь быстрень пробегаем мимо мумий    ==
+	log ================================================
+	]
+	do move 88 138
+	do conf route_step 15
+	do move 89 95
+	do talk cont
+	do talk cont
+	do talk cont
+	do move 73 84
+	do move 68 72
+	do move 77 58
+	do move 89 48
+	pause 1
+	do move 181 170
+	pause 1
+	do move 181 167
+	pause 1
+	do move 182 168
+	do move 182 168
+	do conf QuestPart AssasinQuest8
+	release AssasinQuestPart4
+}
+###########################################################
+
+
+###########################################################
+automacro AssasinQuestPart5 {
+	location in_moc_16 167 113
+	eval $::config{QuestPart} eq "AssasinQuest8"
+	run-once 1
+	call AssasinQuestPart5M
+}
+macro AssasinQuestPart5M {
+	log ================================================
+	log ==  Ну теперь просто бежим к гильдмастеру     ==
+	log ================================================
+	]
+	do move 167 110
+	do talk cont
+	do talk cont
+	do move 149 79
+	do talk cont
+	do talk cont
+	do talk cont
+	do talk cont
+	do talk cont
+	do talk cont
+	do talk cont
+	do talk cont
+	do talk cont
+	do talk cont
+	do talk cont
+	do talk cont
+	do talk cont
+	do talk cont
+	do talk cont
+	do talk cont
+	do talk cont
+	do talk cont
+	do talk cont
+	do talk cont
+	do talk cont
+	do talk cont
+	do talk cont
+	do talk cont
+	do talk cont
+	do talk cont
+	do talk cont
+	do talk cont
+	do talk cont
+	do talk cont
+	do talk cont
+	do talk cont
+	do talk cont
+	do talk cont
+	do talk cont
+	do talk cont
+	do talk cont
+	do talk cont
+	do conf QuestPart AssasinQuest9
+}
+###########################################################
+
+
+###########################################################
+automacro AssasinQuestPart5a {
+	location in_moc_16 17 19
+	eval $::config{QuestPart} eq "AssasinQuest9"
+	run-once 1
+	call AssasinQuestPart5aM
+}
+macro AssasinQuestPart5aM {
+	[
+	log ================================================
+	log       ==      Мы почти ЛОСОСИН      ==
+	log ================================================
+	]
+	do talknpc 19 33 c c c c c
+	$level = @eval($::char->{lv})
+[
+	log ================================================
+	log ==     Now Assasin lvl:$level job: 1          ==
+	log ================================================
+	do conf QuestPart none
+	do conf QuestVar1 none
+	do conf QuestVar2 none
+	do conf QuestDone Assasin
+	do conf Job none
+	do conf QuestDesc none
+]
+}
+###########################################################
