@@ -11,14 +11,12 @@ automacro MerchantQuestBegin {
 	call MerchantQuestBeginM
 }
 macro MerchantQuestBeginM {
-	do include off episode1-8.*Novice.*
-	do include on episode1-8.*Novice_1.*
+	do include off .*Novice.*
 	do conf saveMap alberta
 	do conf saveMap_warpToBuyOrSell 1
 	do conf sellAuto 1
 	do conf sellAuto_npc alberta_in 182 97
 	do conf sellAuto_standpoint alberta_in 185 89
-	do eq @inventory (Novice Battle Axe [3])
 	if ($.zeny < 1000) goto nozeny
 	do conf QuestPart MerchantQuest0b
 	goto end

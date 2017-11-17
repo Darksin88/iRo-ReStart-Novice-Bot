@@ -13,7 +13,7 @@ automacro SwordQuestBegin {
 }
 macro SwordQuestBeginM {
 	log Begin Swordsman Quest
-	do include off preRenewal.*Novice.*
+	do include off .*Novice.*
 	do conf QuestPart SwordmanQuest1
 }
 
