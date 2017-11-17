@@ -292,10 +292,10 @@ Scimiter [3] 0 0 1
 1121 0 0 1 # Tsurugi
 1119 0 0 1 # Tsurugi [1]
 1120 0 0 1 # Tsurugi [2]
-1362 0 0 1 # Two-handed Axe
-Two-handed Axe [1] 0 0 1
-1159 0 0 1 # Two-handed Sword
-Two-handed Sword [1] 0 0 1
+
+
+
+
 1901 0 0 1 # Violin [3]
 #Violin [4] 0 0 1
 1801 0 0 1 # Waghnak [3]
@@ -315,10 +315,10 @@ Two-handed Sword [1] 0 0 1
 # Useless items that are sold by default
 
 1026 0 0 1 # Acorn
-1054 0 0 1 # Ancient Lips
+
 1053 0 0 1 # Ancient Tooth
 Animal Poop 0 0 1
-919 0 0 1 # Animal Skin
+
 7003 0 0 1 # Anolian Skin
 7106 0 0 1 # Antelope Horn
 7107 0 0 1 # Antelope Skin
@@ -327,9 +327,9 @@ Animal Poop 0 0 1
 531 0 0 1 # Apple Juice
 7119 0 0 1 # Bacillus
 513 0 0 1 # Banana
-532 0 0 1 # Banana Juice
+
 1068 0 0 1 # Barren Trunk
-948 0 0 1 # Bear's Footskin
+
 939 0 0 1 # Bee Sting
 925 0 0 1 # Bill of Birds
 1020 0 0 1 # Black Hair
@@ -342,7 +342,7 @@ Animal Poop 0 0 1
 7156 0 0 1 # Broken Shuriken
 7110 0 0 1 # Broken Sword
 7062 0 0 1 # Broken Turtle Shell
-1042 0 0 1 # Bug Leg
+
 7122 0 0 1 # Burning Hair
 7097 0 0 1 # Burning Heart
 7120 0 0 1 # Burning Horseshoe
@@ -355,7 +355,7 @@ Animal Poop 0 0 1
 742 0 0 1 # Chonchon Doll
 915 0 0 1 # Chrysalis
 735 0 0 1 # Chung Jah
-966 0 0 1 # Clam Flesh
+
 965 0 0 1 # Clam Shell
 7030 0 0 1 # Claw of Desert Wolf
 7011 0 0 1 # Claw of Monkey
@@ -370,7 +370,7 @@ Animal Poop 0 0 1
 964 0 0 1 # Crab Shell
 747 0 0 1 # Crystal Mirror
 1045 0 0 1 # Cultish Masque
-7053 0 0 1 # Cyfar
+
 901 0 0 1 # Daenggie
 7157 0 0 1 # Dark Mask
 1047 0 0 1 # Dead Medusa
@@ -416,7 +416,7 @@ Animal Poop 0 0 1
 958 0 0 1 # Horrendous Mouth
 944 0 0 1 # Horseshoe
 7066 0 0 1 # Ice Cubic
-929 0 0 1 # Immortal Heart
+
 928 0 0 1 # Insect Feeler
 7028 0 0 1 # Invite for Duel
 1062 0 0 1 # Jack o' Pumpkin
@@ -432,7 +432,7 @@ Animal Poop 0 0 1
 1033 0 0 1 # Maneater Root
 1031 0 0 1 # Mantis Scythe
 7035 0 0 1 # Matchstick
-517 0 0 1 # Meat
+
 934 0 0 1 # Memento
 7497 0 0 1 # Metal Fragment
 519 0 0 1 # Milk
@@ -453,7 +453,7 @@ Animal Poop 0 0 1
 5037 0 0 1 # Nut Shell
 7002 0 0 1 # Ogre Tooth
 7151 0 0 1 # Oil Paper
-7031 0 0 1 # Old Frying Pan
+
 7072 0 0 1 # Old Shuriken
 1043 0 0 1 # Orc Claw
 931 0 0 1 # Orcish Voucher
@@ -477,7 +477,6 @@ Animal Poop 0 0 1
 740 0 0 1 # Puppet
 945 0 0 1 # Raccoon Leaf
 754 0 0 1 # Racoon Doll
-7145 0 0 1 # Ragnarok T-shirt
 1013 0 0 1 # Rainbow Shell
 1016 0 0 1 # Rat Tail
 544 0 0 1 # Raw Fish
@@ -494,7 +493,7 @@ Animal Poop 0 0 1
 1096 0 0 1 # Round Shell
 7124 0 0 1 # Sand Clump
 936 0 0 1 # Scale Shell
-#Scell 0 0 1
+
 7125 0 0 1 # Scorpion Claw
 1046 0 0 1 # Scorpion Nipper
 904 0 0 1 # Scorpion Tail
@@ -513,7 +512,7 @@ Sharp scale 0 0 1
 7420 0 0 1 # Skull
 7111 0 0 1 # Slick Paper
 946 0 0 1 # Snail's Shell
-926 0 0 1 # Snake Scale
+
 661 0 0 1 # Soft Apron
 943 0 0 1 # Solid Shell
 1067 0 0 1 # Solid Trunk
@@ -522,7 +521,7 @@ Songpyun 0 0 1
 7016 0 0 1 # Spoon Stub
 743 0 0 1 # Spore Doll
 1024 0 0 1 # Squid Ink
-905 0 0 1 # Stem
+
 938 0 0 1 # Sticky Mucus
 918 0 0 1 # Sticky Webfoot
 7008 0 0 1 # Stiff Horn

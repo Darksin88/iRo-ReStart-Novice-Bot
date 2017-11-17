@@ -11,13 +11,14 @@ automacro NoviceGroundPart26 {
 }
 macro NoviceGroundPart26M {
 	[
+	pause 2
 	do conf attackAuto 0
 	do conf route_randomWalk 0
 	log ================================================
 	log =========  Going to the Final Test   ===========
 	log ================================================
 	]
-	do move @rand(95,97) @rand(169,171)
+	do move $.map 96 174
 	pause @rand(2,3)
 	do conf QuestPart NoobZone27
 }

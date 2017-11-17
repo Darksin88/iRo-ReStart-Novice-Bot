@@ -33,7 +33,7 @@ macro NoviceGroundPart3M {
    do move $.map 148 111
    
    pause @rand(4,5)
-   do talknpc 148 112 c w1 c w1 c w1 c w1 c w1 c w1 c w1 c w1 c r1 c c r1 c c r0 c c r0 c c r1 c c r1 c
+   do talknpc 148 112 c c c c c c c c c r1 c c r1 c c r0 c c r0 c c r1 c c r1 c
    pause @rand(2,3)
    do talknpc 148 112
    do conf QuestPart NoviceZone4
@@ -63,9 +63,9 @@ macro NoviceGroundPart4fix {
    log ================================================
 ]
    pause @rand(2,3)
-   do talknpc 100 29 c w1 c w1 c w1 c w1 c w1 c w1 c w1 c w1 c
+   do talknpc 100 29 c c c c c c c c c
    pause @rand(2,3)
-   do talknpc 100 29 c w2 c r0 w2 c w2 c w2 c
+   do talknpc 100 29 c c r0 c c c
    pause @rand(2,3)
    do conf QuestPart NoviceZone5
 }
@@ -80,7 +80,7 @@ macro NoviceGroundPart4M {
 ]
 
    pause @rand(2,3)
-   do talknpc 100 29 c w2 c r0 w2 c w2 c w2 c
+   do talknpc 100 29 c c r0 c c c
    pause @rand(2,3)
    do conf QuestPart NoviceZone5
 }
@@ -102,7 +102,7 @@ macro NoviceGroundPart5M {
    log =========  Conversation with Brade  ============
    log ================================================
 ]
-   do talknpc 100 105 w2 c w2 c w2 c w2 c w2 c w2 c w2 c w2 c w2 c w2 c w2 c w2 c w2 c w2 c
+   do talknpc 100 105 c c c c c c c c c c c c c c
 
    pause @rand(2,3)
 
@@ -120,7 +120,7 @@ macro NoviceGroundPart5M {
    
    pause @rand(2,3)
 
-   do talknpc 100 105 c w2 c w2 c w2 c w2 c w2 c w2 c w2 c w2 c w2 c w2 c w2 c
+   do talknpc 100 105 c c c c c c c c c c c c
    
    pause @rand(2,3)   
    do talknpc 100 105 w4 c
@@ -147,9 +147,9 @@ macro NoviceGroundPart6M {
    log ================================================
    ]
    pause @rand(2,3)
-   do talknpc 115 120 w2 c w2 r0 w2 c w2 c w2 c w2 c
+   do talknpc 115 120 c r0 c c c c
    pause @rand(2,3)
-   do talknpc 115 120 w2 c w2 r1 w2 c
+   do talknpc 115 120 c r1 c
    
    pause @rand(2,3)
    do conf QuestPart NoviceZone7
@@ -173,9 +173,9 @@ macro NoviceGroundPart7M {
    log ================================================
 ]
    pause @rand(2,3)
-   do talknpc 100 105 w2 c w2 c w2 c w2 c
+   do talknpc 100 105 c c c c
    pause @rand(2,3)
-   do talknpc 100 105 w2 c w2 r1 w2 c
+   do talknpc 100 105 c r1 c
    pause @rand(2,3)
    do conf QuestPart NoviceZone8
 }
@@ -196,7 +196,7 @@ macro NoviceGroundPart8M {
    log ========  Conversation with Chocolat  ==========
    log ================================================
 ]
-   do talknpc 33 172 w1 c w1 c w1 c w1 c
+   do talknpc 33 172 c c c c
    pause @rand(2,3)
    do conf QuestPart NoviceZone8pt1
 }
@@ -216,7 +216,7 @@ macro NoviceGroundPart8pt1M {
    log =========  Conversando com a Kafra  ============
    log ================================================
 ]
-   do talknpc 30 176 w1 c w1 c w1 c w1 c w1 c w1 c w1 c w1 c w1 c w1 c w1 c w1 c w1 c w1 c w1 c w1 r4 w1 c
+   do talknpc 30 176 c c c c c c c c c c c c c c c r4 c
 
    pause @rand(2,3)
    do conf QuestPart NoviceZone8pt2
@@ -237,7 +237,7 @@ macro NoviceGroundPart8pt2M {
    log =========  Conversation with Zonda  ============
    log ================================================
 ]
-   do talknpc 33 176 w1 c w1 c w1 c w1 c w1 c w1 c
+   do talknpc 33 176 c c c c c c
    pause @rand(2,3)
    do conf QuestPart NoviceZone8pt3
 }
@@ -257,7 +257,7 @@ macro NoviceGroundPart8pt3M {
    log =========  Conversation with Soldier  ==========
    log ================================================
 ]
-   do talknpc 36 176 w2 c w2 c w2 c
+   do talknpc 36 176 c c c
    pause @rand(2,3)
    do conf QuestPart NoviceZone8pt4
 }
@@ -277,7 +277,7 @@ macro NoviceGroundPart8pt4M {
    log ========  Conversation with Chocolat 2 =========
    log ================================================
 ]
-   do talknpc 33 172 w2 c w2 c w2 c w2 c w2 c w2 c
+   do talknpc 33 172 c c c c c c
    pause @rand(2,3)
    do conf QuestPart NoviceZone9
 }
@@ -304,7 +304,7 @@ macro NoviceGroundPart9M {
    log ================================================
 ]
    pause @rand(2,3)
-   do talknpc 96 30 w2 c w2 c w2 c w2 c w2 c w2 c
+   do talknpc 96 30 c c c c c c
    pause @rand(2,3)
    do conf route_randomWalk 1
    pause 2
@@ -316,7 +316,7 @@ macro NoviceGroundPart9M {
    do mconf Poring 1 0 1 1
    do move $.map 101 49
    pause @rand(2,3)
-   do talknpc 103 50 w2 c w2 c w2 c w2 r0 w2 c w2 r0 w2 c 
+   do talknpc 103 50 c c c r0 c r0 c 
 	#MOVE TO ZONE 2 
    do conf QuestPart NoviceZone10
 }
@@ -355,7 +355,7 @@ macro NoviceGroundPart10M {
    log ================================================
 ]
    pause @rand(2,3)
-   do talknpc 96 30 w2 c w2 c w2 c w2 c w2 c w2 c w2 c w2 c
+   do talknpc 96 30 c c c c c c c c
    pause @rand(2,3)
    do eq @inventory (Novice Cutter [3]) 
    do conf QuestPart NoviceZone12
@@ -395,15 +395,15 @@ macro NoviceGroundPart12M {
    
    do talknpc 105 41 c r2 c c c
    pause 1
-   #Thief
+   #Thief   
+	do talknpc 105 41  c r0 c c c c c r0 c c c 
+   #take doubleattack for easy hunting
    
-   do talknpc 109 41 c r2 c c c
+   do talknpc 109 41 c r2 c c 
    pause 1
    #Merchant
    
-   do talknpc 105 41  c r0 c c c c c r0 c c c 
-   #take doubleattack for easy hunting
-   
+
    
      
 	 pause @rand(2,3)
@@ -418,7 +418,7 @@ macro NoviceGroundPart12M {
    do conf attackAuto 2
    do conf route_randomWalk 1
    pause 1
-   do conf itemsTakeAuto 1
+   do conf itemsTakeAuto 2
    do mconf clearall
    do mconf all 0 0 0
    
@@ -435,7 +435,7 @@ macro NoviceGroundPart12M {
    #Monster Config 
    do mconf Lunatic 1 0 1 1
    do mconf Willow 1 0 1 1
-   do mconf Super Picky 1 0 1 1
+   do mconf Picky 1 0 1 1 
 
      
    do conf QuestPart Hunting
@@ -446,8 +446,7 @@ automacro HuntingP {
    location new_1-2, new_2-2, new_3-2, new_4-2, new_5-2, new_1-3, new_2-3, new_3-3, new_4-3, new_5-3
    eval $::config{QuestPart} eq "Hunting"
    class Novice
-   console /(You attack Monster Super Picky)/i
-      
+   console /(You attack Monster Picky)/i 
    call PickyQuest
 }
 automacro HuntingL {
@@ -502,7 +501,8 @@ macro PickyQuest {
 		release HuntingP	
 		stop
 	:finish
-		do mconf Super Picky 0 0 0
+		
+		do mconf Picky 0 0 0
 		$HuntP = @eval(1)
 		[
 		log ================================================
@@ -587,7 +587,7 @@ macro NoviceGroundPart14M {
 
 automacro NoviceGroundDied {
    location new_1-3
-   eval $::config{QuestPart} eq "NoviceZone10"||$::config{QuestPart} eq "Hunting"||$::config{QuestPart} eq "NoviceZone14||$::config{QuestPart} eq "NoviceZone15"||$::config{QuestPart} eq "NoviceZone12"
+   eval $::config{QuestPart} eq "Hunting"||$::config{QuestPart} eq "NoviceZone14||$::config{QuestPart} eq "NoviceZone15"||$::config{QuestPart} eq "NoviceZone12"
    class Novice
    run-once 1
    call NoviceGroundDiedM
@@ -601,7 +601,7 @@ macro NoviceGroundDiedM {
    log ================================================
 ]
    pause @rand(2,3)
-   do talknpc 103 50 w2 c w1 c w1 c w1 r0 w1 c w1 r0 w1 c
+   do talknpc 103 50 c c c r0 c r0 c
    pause @rand(2,3)
    do conf route_randomWalk 1
    pause @rand(2,3)
@@ -655,13 +655,68 @@ macro NoviceGroundPart15M {
    
    do autosell
    
-   pause 2
+
+   
+   pause 15
+   
+   do conf QuestPart NoobZone16
+}
+
+automacro NoviceGroundPart16 {
+   location new_1-2, new_2-2, new_3-2, new_4-2, new_5-2, new_1-3, new_2-3, new_3-3, new_4-3, new_5-3
+   eval $::config{QuestPart} eq "NoobZone16"
+   class Novice
+   run-once 1
+   call NoviceGroundPart16M
+}
+macro NoviceGroundPart16M {
+	if ($.zeny > 300 ) goto end
+   pause @rand(4,3)
+   do move $.map @rand(104,106) @rand (46,48)
+
+   
+[
+   log ================================================
+   log ========  Teleport to level 2 ========
+   log ================================================
+]
+  
+   do talknpc 103 50 w2 c w1 c w1 c w1 r0 w1 c w1 r0 w1 c
+   pause @rand(2,3)
+   do conf route_randomWalk 1
+   pause @rand(2,3)
+   do conf attackAuto 2
+   pause @rand(2,3)
+   do conf itemsTakeAuto 2
+   pause @rand(2,3)
+   do conf itemsMaxWeight_sellOrStore 15
+   do conf itemsMaxNum_sellOrStore 50
+   do conf QuestPart NoobZone17
+   
+   :end
+   do conf QuestPart NoobZone17
+   
+}
+
+automacro NoviceGroundPart17 {
+   location new_1-2, new_2-2, new_3-2, new_4-2, new_5-2, new_1-3, new_2-3, new_3-3, new_4-3, new_5-3
+   eval $::config{QuestPart} eq "NoobZone17"
+   class Novice
+   zeny >= 300
+   run-once 1
+   
+   call NoviceGroundPart17M   
+}  
+macro NoviceGroundPart17M {
+   
+      pause 10
    
    do talknpc 109 41 c c c c r2 c c c c
-
+     pause 2
    do autosell
    
+   pause 10
    
-   
+     
    do conf QuestPart NoobZone26
 }
